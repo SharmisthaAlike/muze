@@ -35,3 +35,8 @@ For example, pushing `v0.1.1` starts the release workflow and attaches the macOS
 ## Package options
 
 Muze is packaged as a macOS desktop application, not as an npm library. The GitHub Release workflow is the recommended distribution path. `npm run build:mac` creates the local DMG, while tagged releases build and publish it automatically.
+
+## License
+
+See the [LICENSE](LICENSE) file for details.
+
