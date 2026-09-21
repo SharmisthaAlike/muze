@@ -1,0 +1,25 @@
+{
+  "name": "muze",
+  "version": "0.1.0",
+  "description": "A focused desktop music player for local album folders.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "build:mac": "electron-builder --mac",
+    "build": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^36.3.1",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.muze.player",
+    "productName": "Muze",
+    "files": ["src/**/*", "package.json"],
+    "mac": {
+      "category": "public.app-category.music",
+      "target": "dmg"
+    }
+  }
+}

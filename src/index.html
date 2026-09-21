@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muze</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">m</span><span>muze</span></div>
+      <div class="window-title">LOCAL LIBRARY</div>
+      <button class="icon-button" id="rescanButton" title="Rescan library" aria-label="Rescan library">↻</button>
+    </header>
+    <main class="content">
+      <aside class="sidebar">
+        <div class="sidebar-label">Library</div>
+        <button class="nav-item active" id="allSongsButton"><span class="nav-icon">◒</span>All music <span class="count" id="trackCount">0</span></button>
+        <button class="nav-item" id="albumsButton"><span class="nav-icon">▦</span>Albums <span class="count" id="albumCount">0</span></button>
+        <div class="sidebar-label folder-label">Music folder</div>
+        <div class="folder-path" id="folderPath">No folder selected</div>
+        <button class="add-folder" id="chooseFolderButton"><span>＋</span> Add music folder</button>
+        <div class="sidebar-footer">LOCAL PLAYBACK<br><span>Files stay on your PC</span></div>
+      </aside>
+      <section class="library-view">
+        <div class="view-heading">
+          <div><p class="eyebrow">YOUR COLLECTION</p><h1 id="viewTitle">All music</h1></div>
+          <button class="primary-button" id="playAllButton" disabled><span>▶</span> Play all</button>
+        </div>
+        <div class="empty-state" id="emptyState">
+          <div class="empty-disc"><span>♪</span></div>
+          <p class="empty-kicker">A quieter way to listen</p>
+          <h2>Bring your music home.</h2>
+          <p>Select the folder where your albums live. Muze will arrange everything for you.</p>
+          <button class="primary-button" id="emptyChooseButton"><span>＋</span> Choose music folder</button>
+        </div>
+        <div class="album-grid" id="albumGrid"></div>
+        <div class="track-panel" id="trackPanel" hidden>
+          <div class="panel-heading"><div><p class="eyebrow">NOW BROWSING</p><h2 id="panelTitle">Tracks</h2></div><span id="panelMeta"></span></div>
+          <div class="track-list" id="trackList"></div>
+        </div>
+      </section>
+    </main>
+    <footer class="player-bar">
+      <div class="now-playing"><div class="cover-art" id="coverArt">♪</div><div class="now-copy"><strong id="nowTitle">Nothing playing</strong><span id="nowAlbum">Choose a track to begin</span></div></div>
+      <div class="transport"><div class="transport-buttons"><button class="control-button" id="previousButton" title="Previous">↶</button><button class="play-button" id="playButton" title="Play" disabled>▶</button><button class="control-button" id="nextButton" title="Next">↷</button></div><div class="progress-row"><span id="currentTime">0:00</span><input type="range" id="progress" min="0" max="100" value="0" aria-label="Playback progress"><span id="totalTime">0:00</span></div></div>
+      <div class="volume"><span>⌁</span><input type="range" id="volume" min="0" max="1" value="0.8" step="0.01" aria-label="Volume"></div>
+    </footer>
+  </div>
+  <audio id="audio"></audio>
+  <script src="renderer.js"></script>
+</body>
+</html>
