@@ -118,7 +118,7 @@ async function rescan() {
   const scannedAlbums = result.albums.map((album) => ({ ...album, libraryPath: state.libraryPath }));
   state.albums = [...state.albums.filter((album) => album.libraryPath !== state.libraryPath), ...scannedAlbums];
   state.currentAlbum = currentAlbumId === null ? null : state.albums.findIndex((album) => album.id === currentAlbumId);
-  if (state.currentAlbum < 0) { state.currentAlbum = null; $('trackPanel').hidden = true; $('viewTitle').textContent = 'All music'; }
+  if (state.currentAlbum === -1) { state.currentAlbum = null; $('trackPanel').hidden = true; $('viewTitle').textContent = 'All music'; }
   render();
 }
 
